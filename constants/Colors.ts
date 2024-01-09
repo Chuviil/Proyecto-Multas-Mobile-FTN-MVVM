@@ -1,3 +1,4 @@
+const primary = "#FFBB38";
 const tintColorLight = '#2f95dc';
 const tintColorDark = '#fff';
 
@@ -8,6 +9,7 @@ export default {
     tint: tintColorLight,
     tabIconDefault: '#ccc',
     tabIconSelected: tintColorLight,
+    labelTextColor: primary,
   },
   dark: {
     text: '#fff',
@@ -15,5 +17,7 @@ export default {
     tint: tintColorDark,
     tabIconDefault: '#ccc',
     tabIconSelected: tintColorDark,
+    labelTextColor: primary,
   },
+  primary: primary,
 };
