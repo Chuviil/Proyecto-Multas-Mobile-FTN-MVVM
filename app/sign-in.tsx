@@ -1,11 +1,10 @@
 import SignInView from "../views/SignInView";
 import {useState} from "react";
 import {useSession} from "../ctx";
-import {UsuarioLoginReqDTO, UsuarioLoginResDTO} from "../models/UsuarioLoginDTO";
 import AxiosClient from "../AxiosClient";
 import {AxiosResponse} from "axios";
 import {router} from "expo-router";
-import {Usuario} from "../models/Usuario";
+import {Usuario, UsuarioLoginReqDTO, UsuarioLoginResDTO} from "../models/Usuario";
 
 const SignInViewModel = () => {
     const {signIn} = useSession();
@@ -17,7 +16,7 @@ const SignInViewModel = () => {
         setIsLoading(true);
         try {
             const response: AxiosResponse<UsuarioLoginResDTO> = await AxiosClient.post("/Ayudante/login", usuario);
-            const userToSave : Usuario = {
+            const userToSave: Usuario = {
                 nombre: response.data.user.Nombre,
                 carrera: response.data.user.Carrera,
                 idBanner: response.data.user.IdBanner

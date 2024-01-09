@@ -1,9 +1,21 @@
-import {UsuarioLoginReqDTO} from "./UsuarioLoginDTO";
-
 export type Usuario = {
     idBanner: string,
     nombre: string,
     carrera: string
+}
+
+export type UsuarioLoginReqDTO = {
+    idBanner: string,
+    contrasenia: string,
+}
+
+export type UsuarioLoginResDTO = {
+    token: string,
+    user: {
+        IdBanner: string,
+        Nombre: string,
+        Carrera: string
+    },
 }
 
 export type SignInViewModelType = {
