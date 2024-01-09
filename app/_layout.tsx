@@ -1,6 +1,7 @@
 import {DarkTheme, DefaultTheme, ThemeProvider} from '@react-navigation/native';
-import {Stack} from 'expo-router';
+import {Slot} from 'expo-router';
 import {useColorScheme} from 'react-native';
+import {SessionProvider} from "../ctx";
 
 export {
     // Catch any errors thrown by the Layout component.
@@ -19,10 +20,10 @@ function RootLayoutNav() {
     const colorScheme = useColorScheme();
 
     return (
-        <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-            <Stack screenOptions={{headerShown: false}}>
-                <Stack.Screen name="(app)"/>
-            </Stack>
-        </ThemeProvider>
+        <SessionProvider>
+            <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+                <Slot/>
+            </ThemeProvider>
+        </SessionProvider>
     );
 }
