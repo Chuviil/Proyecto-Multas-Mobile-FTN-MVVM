@@ -1,11 +1,21 @@
-import {View, Text} from "../../components/Themed";
+import React from 'react';
+import {Text, View} from '../../components/Themed';
+import {useSession} from '../../ctx';
 
-const IndexView = () => {
+export default function Index() {
+    const {signOut, user} = useSession();
+
     return (
-        <View>
-           <Text>INDEX VIEW</Text>
+        <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+            <Text>Hola {user.nombre}</Text>
+            <Text
+                onPress={() => {
+                    // The `app/(app)/_layout.tsx` will redirect to the sign-in screen.
+                    signOut();
+                }}
+            >
+                Sign Out
+            </Text>
         </View>
     );
-};
-
-export default IndexView;
+}
