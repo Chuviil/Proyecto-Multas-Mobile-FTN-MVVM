@@ -7,12 +7,14 @@ const AuthContext = React.createContext<{
     signOut: () => void;
     session?: string | null;
     user: Usuario,
-    isLoading: boolean;
+    userLoading: boolean,
+    isLoading: boolean,
 }>({
     signIn: () => null,
     signOut: () => null,
     session: null,
     user: {nombre: "", carrera: "", idBanner: ""},
+    userLoading: false,
     isLoading: false,
 });
 
@@ -47,6 +49,7 @@ export function SessionProvider(props: React.PropsWithChildren) {
                 session,
                 user: JSON.parse(user as string),
                 isLoading,
+                userLoading,
             }}>
             {props.children}
         </AuthContext.Provider>
