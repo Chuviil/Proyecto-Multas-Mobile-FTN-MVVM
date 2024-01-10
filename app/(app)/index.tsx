@@ -4,6 +4,7 @@ import {Multa, MultaResDTO} from "../../models/Multa";
 import AxiosClient from "../../AxiosClient";
 import {useSession} from "../../ctx";
 import {AxiosResponse} from "axios";
+import {router} from "expo-router";
 
 const MultasViewModel = () => {
     const {user, userLoading} = useSession();
@@ -13,14 +14,14 @@ const MultasViewModel = () => {
     const [refreshing, setRefreshing] = useState<boolean>(false);
 
     const handleCardPress = (id: number) => {
-        console.log(id);
+        router.push(`/multa/${id}`);
     }
 
     const fetchMultas = async () => {
         setIsFetching(true);
 
         try {
-            const response : AxiosResponse<MultaResDTO[]>= await AxiosClient.get(`/Ayudante/${user.idBanner}/multas`);
+            const response: AxiosResponse<MultaResDTO[]> = await AxiosClient.get(`/Ayudante/${user.idBanner}/multas`);
             setMultas(response.data.map((multa) => ({
                 multaId: multa.MultaId,
                 monto: multa.Monto,
