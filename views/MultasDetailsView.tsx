@@ -37,8 +37,7 @@ const MultasDetailsView = ({viewModel}: { viewModel: MultasDetailsViewModelType 
                 </View>
             </View>
         </SafeAreaView>
-    )
-        ;
+    );
 };
 
 export default MultasDetailsView;

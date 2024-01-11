@@ -5,10 +5,14 @@ import AxiosClient from "../../../AxiosClient";
 
 const PerfilViewModel = () => {
     const {session, user, signOut} = useSession();
-    const [changePasswordModalVisible, setChangePasswordModalVisible] = useState<boolean>(false);
-    const [changingPassword, setChangingPassword] = useState<boolean>(false);
-    const [nuevaContrasenia, setNuevaContrasenia] = useState<string>("");
-    const [nuevaContraseniaConfirmation, setNuevaContraseniaConfirmation] = useState<string>("");
+    const [changePasswordModalVisible, setChangePasswordModalVisible] =
+        useState<boolean>(false);
+    const [changingPassword, setChangingPassword] =
+        useState<boolean>(false);
+    const [nuevaContrasenia, setNuevaContrasenia] =
+        useState<string>("");
+    const [nuevaContraseniaConfirmation, setNuevaContraseniaConfirmation] =
+        useState<string>("");
 
     const handleLogout = () => {
         signOut();

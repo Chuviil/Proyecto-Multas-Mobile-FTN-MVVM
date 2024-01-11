@@ -46,18 +46,31 @@ const PerfilView = ({viewModel}: { viewModel: PerfilViewModelType }) => {
                             {viewModel.changingPassword ? (
                                 <ActivityIndicator style={styles.loadingIndicator} size={"large"}/>
                             ) : (
-                                <TouchableOpacity style={styles.loadingIndicator} onPress={viewModel.hideChangePasswordModal}>
+                                <TouchableOpacity
+                                    style={styles.loadingIndicator}
+                                    onPress={viewModel.hideChangePasswordModal}>
                                     <MaterialCommunityIcons color={"#FFF"} name={"close"} size={30}/>
                                 </TouchableOpacity>
                             )}
                             <Text style={styles.modalTitle}>Cambio de Contraseña</Text>
                             <View style={styles.textInputContainer}>
-                                <Text lightColor={COLORS.primary} darkColor={COLORS.primary}>Contraseña nueva</Text>
+                                <Text
+                                    lightColor={COLORS.primary}
+                                    darkColor={COLORS.primary}>
+                                    Contraseña nueva
+                                </Text>
                                 <TextInput onChangeText={viewModel.handleNuevaContrasenia} style={styles.textInput}/>
                             </View>
                             <View style={styles.textInputContainer}>
-                                <Text lightColor={COLORS.primary} darkColor={COLORS.primary}>Confirmar contraseña nueva</Text>
-                                <TextInput onChangeText={viewModel.handleNuevaContraseniaConfirmation} style={styles.textInput}/>
+                                <Text
+                                    lightColor={COLORS.primary}
+                                    darkColor={COLORS.primary}>
+                                    Confirmar contraseña nueva
+                                </Text>
+                                <TextInput
+                                    onChangeText={viewModel.handleNuevaContraseniaConfirmation}
+                                    style={styles.textInput}
+                                />
                             </View>
                             <View style={{marginTop: 20}}>
                                 {viewModel.changingPassword ? (

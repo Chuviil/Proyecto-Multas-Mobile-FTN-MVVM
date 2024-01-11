@@ -10,7 +10,9 @@ const SignInViewModel = () => {
     const {signIn} = useSession();
 
     const [isLoading, setIsLoading] = useState<boolean>(false);
-    const [usuario, setUsuario] = useState<UsuarioLoginReqDTO>({idBanner: "", contrasenia: ""});
+    const [usuario, setUsuario] = useState<UsuarioLoginReqDTO>(
+        {idBanner: "", contrasenia: ""}
+    );
 
     const handleSignIn = async () => {
         setIsLoading(true);

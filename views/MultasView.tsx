@@ -30,7 +30,12 @@ const MultasView = ({viewModel} : {viewModel : MultasViewModelType}) => {
                     <FlatList
                         data={viewModel.multas}
                         renderItem={({item}) => (
-                            <TouchableOpacity lightColor={"#fafafa"} darkColor={"#0d0d0d"} style={styles.cardContainer} onPress={() => viewModel.handleCardPress(item.multaId)}>
+                            <TouchableOpacity
+                                lightColor={"#fafafa"}
+                                darkColor={"#0d0d0d"}
+                                style={styles.cardContainer}
+                                onPress={() => viewModel.handleCardPress(item.multaId)}
+                            >
                                 <Text numberOfLines={1} style={styles.cardTitle}>{item.razon}</Text>
                                 <Text>Valor a pagar: ${parseFloat(item.monto + "").toFixed(2)}</Text>
                             </TouchableOpacity>

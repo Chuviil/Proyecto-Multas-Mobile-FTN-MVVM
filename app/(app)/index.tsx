@@ -1,10 +1,10 @@
-import React, {useEffect, useState} from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 import MultasView from "../../views/MultasView";
 import {Multa, MultaResDTO} from "../../models/Multa";
 import AxiosClient from "../../AxiosClient";
 import {useSession} from "../../ctx";
 import {AxiosResponse} from "axios";
-import {router} from "expo-router";
+import {router, useFocusEffect} from "expo-router";
 
 const MultasViewModel = () => {
     const {user, userLoading} = useSession();
@@ -21,7 +21,9 @@ const MultasViewModel = () => {
         setIsFetching(true);
 
         try {
-            const response: AxiosResponse<MultaResDTO[]> = await AxiosClient.get(`/Ayudante/${user.idBanner}/multas`);
+            const response: AxiosResponse<MultaResDTO[]> = await AxiosClient.get(
+                `/Ayudante/${user.idBanner}/multas`
+            );
             setMultas(response.data.map((multa) => ({
                 multaId: multa.MultaId,
                 monto: multa.Monto,
@@ -41,9 +43,9 @@ const MultasViewModel = () => {
         setRefreshing(false);
     }
 
-    useEffect(() => {
+    useFocusEffect(useCallback(() => {
         fetchMultas();
-    }, [userLoading]);
+    }, [userLoading]))
 
     const viewModel = {
         multas,

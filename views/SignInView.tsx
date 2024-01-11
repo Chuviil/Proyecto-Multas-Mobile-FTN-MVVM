@@ -23,7 +23,11 @@ const SignInView = ({viewModel}: { viewModel: SignInViewModelType }) => {
                     </View>
                     <View style={styles.textInputContainer}>
                         <Text lightColor={COLORS.primary} darkColor={COLORS.primary}>Contraseña</Text>
-                        <TextInput onChangeText={viewModel.handleContraseniaChange} style={styles.textInput} secureTextEntry/>
+                        <TextInput
+                            onChangeText={viewModel.handleContraseniaChange}
+                            style={styles.textInput}
+                            secureTextEntry
+                        />
                     </View>
                     <View style={{marginTop: 60}}>
                         {viewModel.isLoading ? (
